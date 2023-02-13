@@ -35,7 +35,6 @@ class _AnswerPageState extends State<AnswerPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-
               Text(
                 "${widget.question.question} ?" ?? "",style: Style.textStyleBig(),),
               24.verticalSpace,
@@ -44,9 +43,7 @@ class _AnswerPageState extends State<AnswerPage> {
                 child: CustomTextFrom(
                     onchange: (e){
                       tap = true;
-                      setState(() {
-
-                      });
+                      setState(() {});
                     },
                     validator: (value) {
                       if (value?.isEmpty ?? true) {
@@ -54,7 +51,6 @@ class _AnswerPageState extends State<AnswerPage> {
                       }
                       return null;
                     },
-               //borderSide: ,
                     controller: answerController, hintext: "Write Answer"),
               ),
               100.verticalSpace,

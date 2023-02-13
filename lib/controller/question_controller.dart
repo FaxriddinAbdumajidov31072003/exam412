@@ -6,24 +6,13 @@ import 'local_store.dart';
 
 class AppController extends ChangeNotifier {
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
-  bool isLoading =true;
-
+  bool isLoading = true;
   QuerySnapshot? res;
   List listofquestions = [];
-
-  // ignore: prefer_typing_uninitialized_variables
   var question;
 
   int selectIndex = -1;
-
-// setQuestion() async {
-//   String? docId = await LocalStore.getDocId();
-//   var res = await firestore.collection("Question").doc(docId).set();
-//   question = AnswerModel.fromJson(res.data());
-// }
-
   createQuestion({required String question}) async {
-
     notifyListeners();
     await firestore.collection("Question").add(QuestionModel(
           question: question,
@@ -59,19 +48,16 @@ class AppController extends ChangeNotifier {
       listofquestions
           .add(QuestionModel.fromJson(data: element.data(), id: element.id));
     });
-    print(listofquestions.length);
-    isLoading =false;
+    isLoading = false;
     notifyListeners();
   }
-
-
 
   changeIndex(int index) async {
     if (selectIndex == index) {
-        selectIndex = -1;
+      selectIndex = -1;
     } else {
       selectIndex = index;
-    notifyListeners();
+      notifyListeners();
+    }
   }
-
-}}
+}

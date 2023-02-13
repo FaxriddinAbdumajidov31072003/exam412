@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:exam4/controller/question_controller.dart';
-import 'package:exam4/model/question_model.dart';
 import 'package:exam4/view/companents/on_focus.dart';
 import 'package:exam4/view/pages/quetion_page.dart';
 import 'package:flutter/material.dart';

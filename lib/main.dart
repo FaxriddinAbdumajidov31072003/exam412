@@ -1,12 +1,9 @@
-import 'package:exam4/view/companents/wraps.dart';
-import 'package:exam4/view/pages/add_question_page.dart';
 import 'package:exam4/view/pages/quetion_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-
 import 'controller/question_controller.dart';
 
 void main() async {
@@ -22,6 +19,7 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
 
 
   @override

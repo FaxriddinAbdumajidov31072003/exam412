@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:exam4/view/pages/add_question_page.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +10,6 @@ import '../../model/question_model.dart';
 import '../../style/style.dart';
 import '../companents/question_listview.dart';
 import '../companents/wraps.dart';
-import 'answer_page.dart';
 
 class QuestionPage extends StatefulWidget {
   const QuestionPage({Key? key}) : super(key: key);
@@ -30,26 +28,18 @@ class _QuestionPageState extends State<QuestionPage> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<AppController>().getQuestioninfirebase();
     });
-
     answerController = TextEditingController();
-
     super.initState();
   }
 
   @override
   void dispose() {
     answerController.dispose();
-
     super.dispose();
   }
 
-
-  bool _loading = false;
-
   @override
   Widget build(BuildContext context) {
-    var state = context.read<AppController>();
-    var lim = context.watch<AppController>();
     return Scaffold(
       body: context.watch<AppController>().isLoading ?
       LoadingAnimationWidget.hexagonDots(color: Style.blueColor, size: 50) :
@@ -74,9 +64,8 @@ class _QuestionPageState extends State<QuestionPage> {
          28.5.verticalSpace,
           SizedBox(height: 38, child: Lists()),
           15.verticalSpace,
-          Expanded(
+          const Expanded(
               child: QuestionListView(),
-
           ),
           FloatingActionButton(
             onPressed: () {
